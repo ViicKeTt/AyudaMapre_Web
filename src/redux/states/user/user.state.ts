@@ -5,7 +5,8 @@ export const InitialValues: userDto = {
   guid: '',
   name: '',
   lastName: '',
-  lastSession: ''
+  lastSession: '',
+  role: ''
 }
 
 export const userSlice = createSlice({
@@ -20,3 +21,4 @@ export const userSlice = createSlice({
 
 export const { createUser, updateUser, resetUser } = userSlice.actions
 export default userSlice.reducer
+ 

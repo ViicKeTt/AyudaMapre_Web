@@ -3,4 +3,5 @@ export interface userDto {
   name: string
   lastName: string
   lastSession: string
+  role: string
 }

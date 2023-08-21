@@ -1,8 +1,8 @@
 export interface IAuthState {
   logged: boolean
   user?: tokenSuccesModel | tokenFailedModel | null
-  login?: any
-  logOut?: any
+  login?: boolean // any
+  logOut?: boolean // any
 }
 
 export interface UserData {

@@ -7,16 +7,10 @@ export interface AuthenticatorConfigure {
   //se puede añadir mas
 }
  
-// export default configureStore<AuthenticatorConfigure>({
-//   reducer: {
-//     user: userSlice.reducer
-//   }
-// })
-
-const store = configureStore<AuthenticatorConfigure>({
+const StoreConfigure = configureStore<AuthenticatorConfigure>({
   reducer: {
     user: userSlice.reducer
   }
 });
 
-export default store;
+export default StoreConfigure;

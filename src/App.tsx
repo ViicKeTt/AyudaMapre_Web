@@ -2,7 +2,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { RoutesApp } from './routers/RoutesApp'
 import moment from 'moment'
 import { Provider } from 'react-redux'
-import store from './redux/states/store'
+import store from './redux/states/StoreConfigure'
+import { Suspense } from 'react'
 
 moment.locale('es', {
   weekdays: 'Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado'.split('_'),
@@ -33,11 +34,13 @@ moment.locale('es', {
 function App() {
 
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <RoutesApp />
-      </BrowserRouter>
-    </Provider>
+    <Suspense fallback={<h1>Loading....</h1>}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <RoutesApp />
+        </BrowserRouter>
+      </Provider>
+    </Suspense>
   )
 }
 
