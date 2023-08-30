@@ -1,17 +1,20 @@
-import { Navigate, Route } from "react-router-dom"
-import { RouteWithNotFound } from "../../utils"
-import { PrivateRoute } from ".." 
-import DashboardPage from "../../pages/Private/Dashboard"
+import { Navigate, Outlet, } from "react-router-dom"
 
-
-const PrivateRouter = () => {
-  return (
-    <RouteWithNotFound>
-      <Route path="/" element={<Navigate to={PrivateRoute.PRIVATE} />}>
-        <Route path={PrivateRoute.DASHBOARD} element={<DashboardPage />}></Route>
-        <Route path={PrivateRoute.HOME} element={<DashboardPage />}></Route>
-      </Route>
-    </RouteWithNotFound>
-  )
+type routeProp = {
+  isAuthenticated: boolean
+  redirectPact: string
 }
-export default PrivateRouter
+
+//15min video
+export function ProtectedRoute({ isAuthenticated, redirectPact = '/' }: routeProp) {
+  //react-use
+  if (!isAuthenticated)
+    return <Navigate to={redirectPact} replace />
+  return <Outlet />
+
+// ej.
+{/* <Route element={<ProtectedRoute isAuthenticated={true} />}>
+  <Route path="/" element={<h1>Index</h1>}>
+  </Route>
+</Route> */}
+}

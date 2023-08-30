@@ -1,3 +1,4 @@
+
 export const PublicRoute = {
   INDEX: '/',
   LOGIN: 'login'
@@ -6,5 +7,6 @@ export const PublicRoute = {
 export const PrivateRoute = {
   PRIVATE: 'pv',
   HOME: 'home',
-  DASHBOARD: 'dashboard',
+  DASHBOARD: 'dashboard'
 }
+

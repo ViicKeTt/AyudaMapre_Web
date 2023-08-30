@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "src/auth/types/roles.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

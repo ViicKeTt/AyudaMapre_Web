@@ -1,11 +1,26 @@
 import { useSelector } from "react-redux"
 import { AuthenticatorConfigure } from "../redux/states/StoreConfigure"
 import { Navigate, Outlet } from "react-router-dom"
-import { PublicRoute } from "../routers"
+import { PrivateRoute, PublicRoute } from "../routers"
 
-export const AuthGuard = () => {
-  const userState = useSelector((store: AuthenticatorConfigure) => store.user) 
-  return !userState.guid ? <Outlet /> : <Navigate replace to={PublicRoute.LOGIN} />
+interface Props {
+  privateValidation: boolean;
 }
 
-//https://www.youtube.com/watch?v=UVsX7A2wfLo   1:03:51
+const PublicValidationFragment = <Outlet />;
+const PrivateValidationFragment = <Navigate replace to={PrivateRoute.PRIVATE} />;
+
+export const AuthGuard = ({ privateValidation }: Props) => {
+  const userState = useSelector((store: AuthenticatorConfigure) => store.user);
+
+  //--> Validation delete '!' in ↓
+  return userState.name ? (
+    privateValidation ? (
+      PublicValidationFragment
+    ) : (
+      PrivateValidationFragment 
+    )
+  ) : (
+    <Navigate replace to={PublicRoute.LOGIN} />
+  );
+};
