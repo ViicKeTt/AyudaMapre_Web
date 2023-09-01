@@ -6,7 +6,11 @@ export default {
     // './src/pages/**/*.{ts,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif']
+      }
+    }
   },
   plugins: []
 }

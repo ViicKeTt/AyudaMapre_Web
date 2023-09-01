@@ -10,6 +10,8 @@ interface Props {
 
 function RoleGuard({ rol }: Props) {
   const userState = useSelector((store: AuthenticatorConfigure) => store.user);
-  return userState.role === rol ? <Outlet /> : <Navigate replace to={PrivateRoute.PRIVATE} />;
+  // return userState.role === rol ? <Outlet /> : <Navigate replace to={PrivateRoute.PRIVATE} />; //metodo anterior
+  return userState.role.includes(rol) ? <Outlet /> : <Navigate replace to={PrivateRoute.PRIVATE} />;
+
 }
 export default RoleGuard;

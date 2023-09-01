@@ -5,5 +5,5 @@ export interface userDto {
   name: string
   lastName: string
   lastSession: string
-  role: Roles
+  role: Roles[]
 }

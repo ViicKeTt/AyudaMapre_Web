@@ -14,7 +14,7 @@ export const AuthGuard = ({ privateValidation }: Props) => {
   const userState = useSelector((store: AuthenticatorConfigure) => store.user);
 
   //--> Validation delete '!' in ↓
-  return userState.name ? (
+  return !userState.name ? (
     privateValidation ? (
       PublicValidationFragment
     ) : (

@@ -4,6 +4,7 @@ import moment from 'moment'
 import { Provider } from 'react-redux'
 import store from './redux/states/StoreConfigure'
 import { Suspense } from 'react'
+import { Waveform } from '@uiball/loaders'
 
 moment.locale('es', {
   weekdays: 'Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado'.split('_'),
@@ -34,7 +35,16 @@ moment.locale('es', {
 function App() {
 
   return (
-    <Suspense fallback={<h1>Loading....</h1>}>
+    <Suspense fallback={
+      <div>
+        <Waveform
+          size={40}
+          lineWeight={3.5}
+          speed={1}
+          color="black"
+        />
+      </div>
+    }>
       <Provider store={store}>
         <BrowserRouter>
           <RoutesApp />

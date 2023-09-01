@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { userSlice } from "./user/user.state"
+import { userSlice } from "./user/user"
 import { userDto } from "../../models"
  
 export interface AuthenticatorConfigure {
